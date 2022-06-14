@@ -10,6 +10,9 @@
       <button @click="clearSearch" v-show="searchInput !== ''" class="button">Clear Search</button>
     </div>
 
+    <!-- Loading -->
+    <LoadingComponent v-if="$fetchState.pending" />
+
     <!-- Movies -->
     <div class="container movies">
       <!-- Searched Movies -->
@@ -91,6 +94,7 @@ export default {
     }
     await this.searchMovies()
   },
+  fetchDelay: 1000,
   methods: {
     async getMovies() {
       const data = axios.get(
@@ -121,6 +125,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.loading {
+  padding-top: 120px;
+  align-items: flex-start;
+}
 .search {
   display: flex;
   padding: 32px 16px;

@@ -80,6 +80,23 @@
 <script>
 import axios from 'axios'
 export default {
+  head() {
+    return {
+      title: 'Movie App by Tim Statler',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Get all the latest streaming movies in theaters & online'
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: 'movies, stream, streaming, imdb, films, film'
+        },
+      ]
+    }
+  },
   data() {
     return {
       movies: [],
